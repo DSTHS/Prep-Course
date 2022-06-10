@@ -6,6 +6,13 @@ function crearGato (nombre, edad) {
   // Agrega un método (funcion) llamado "meow" que devuelva el string "Meow!"
   // Devuelve el objeto
   // Tu código:
+  var Nuevoobjeto = 
+  { 
+    nombre : nombre, 
+    edad : edad,
+    meow: function (){ return 'Meow!'}
+  }
+     return Nuevoobjeto
 }
 
 function agregarPropiedad (objeto, property) {
@@ -13,6 +20,13 @@ function agregarPropiedad (objeto, property) {
   // Devuelve el objeto
   // NOTA: El nombre de la propiedad no es "propiedad", el nombre es el valor del argumento llamado "property" (una cadena/string)
   // Tu código:
+  /*console.log(objeto)
+  console.log(property)*/
+
+   objeto[property]= null;
+   return objeto;
+
+
 }
 
 function invocarMetodo (objeto, metodo) {
@@ -20,6 +34,11 @@ function invocarMetodo (objeto, metodo) {
   // Invoca ese método
   // Nada necesita ser devuelto ("returned")
   // Tu código:
+  
+  // metodo ='nombremetodo()'
+  // metodo está dentro del objeto
+  objeto[metodo]();
+  
 }
 
 function multiplicarNumeroDesconocidoPorCinco (objetoMisterioso) {
@@ -27,13 +46,31 @@ function multiplicarNumeroDesconocidoPorCinco (objetoMisterioso) {
   // Multiplica el numeroMisterioso por 5 y devuelve el producto
   // Tu código:
 
+  //'objetoMisterioso' {'numeroMisterioso',x,y,z}
+  //numeromisteriosos * 5 
+  // return producto.
+
+  return objetoMisterioso.numeroMisterioso * 5 
 }
 
 function eliminarPropiedad (objeto, unaPropiedad) {
   // Elimina la propiedad de objeto cuyo nombre está pasado por el parametro unaPropiedad
   // tip: tenes que usar bracket notation
   // Devuelve el objeto
-  // Tu código:
+  // Tu código: 
+
+  /*console.log (unaPropiedad);
+  console.log (objeto);*/
+
+  // objeto { x:1,y:2, unapropiedad:null}
+  // unaPropiedad: 'nombre'
+  // delete unapropiedad
+  // return objeto
+
+  
+
+  delete objeto[unaPropiedad];
+  return objeto;
 }
 
 function nuevoUsuario (nombre, email, password) {
@@ -41,12 +78,26 @@ function nuevoUsuario (nombre, email, password) {
   // Devuelve el objeto
   // Tu código:
 
+  // nuevoObjeto {nombre, email, password}
+  // return nuevoObjeto
+
+  var nuevoObjeto = {nombre, email, password};
+  return nuevoObjeto
 }
 
 function tieneEmail (usuario) {
   // Devuelve "true" si el usuario tiene un valor definido para la propiedad "email"
   // De lo contratio, devuelve "false"
   // Tu código:
+
+  //usuario ={x:1, y:2 email:usuario@email}
+  // return 'true' 
+  // return 'false' si no esta definido.
+  // console.log (usuario)
+
+  if (usuario.email == null || usuario.email== undefined)
+  {return false} 
+  else { return true}
 }
 
 function tienePropiedad (objeto, propiedad) {
@@ -54,6 +105,14 @@ function tienePropiedad (objeto, propiedad) {
   // "propiedad" es un string
   // De lo contrario, devuelve "false"
   // Tu código:
+
+  // objeto {x:1, y:2, objeto.propiedad = propiedad.argumento}
+  // objeto {x:1, y:2, z = 'propiedad.argumento'}
+  /*return true 
+    return false*/
+
+    if (objeto[propiedad] === objeto['propiedad'])
+    {return false} else { return true}; 
 }
 
 function verificarPassword (usuario, password) {
@@ -61,12 +120,35 @@ function verificarPassword (usuario, password) {
   // Devuelve "true" si coinciden
   // De lo contrario, devuelve "false"
   // Tu código:
+
+  // usuario{x:1 passwordUsuario:'valorpassword'}
+  // if (password= 'valorpassword) return true
+  // else return false
+
+  //console.log(usuario)
+  //console.log(password)
+
+  if (password === usuario['password']) 
+   {return true}  
+   else {return false};
+
+
 }
 
 function actualizarPassword (usuario, nuevaPassword) {
   // Reemplaza la contraseña existente en el objeto "usuario" con el valor de "nuevagPassword"
   // Devuelve el objeto
   // Tu código:
+
+  // usuario {x:1, contraseña:viejapassword}
+  // usuario.contraseña = nuevapassword
+  // return usuario
+
+  //console.log (usuario)
+  //console.log (nuevaPassword)
+
+  usuario.password = nuevaPassword
+  return usuario;
 }
 
 function agregarAmigo (usuario, nuevoAmigo) {
@@ -74,6 +156,13 @@ function agregarAmigo (usuario, nuevoAmigo) {
   // Agrega "nuevoAmigo" al final de ese array
   // Devuelve el objeto "usuario"
   // Tu código:
+
+  // usuario{x:1, amigos:[]}
+  // usuario.amigos.push (nuevoamigo)
+  // return usuario
+
+  usuario.amigos.push (nuevoAmigo)
+  return usuario;
 }
 
 function pasarUsuarioAPremium (usuarios) {
@@ -81,7 +170,19 @@ function pasarUsuarioAPremium (usuarios) {
   // Cada objeto "usuario" tiene la propiedad "esPremium"
   // Define cada propiedad "esPremium" de cada objeto como "true"
   // Devuelve el array de usuarios
-  // Tu código:
+  // Tu código: 
+
+  // usuarios = ['ale'={}, 'paco'={},'pedro'={}, 'juan'{},]
+  // usuario {x:1, esPremium:undefined}
+  // usuario.esPremium = 'true'
+  // return usuarios
+
+  // console.log(usuarios)
+
+  for (i=0;  i<usuarios.length; i++) 
+  { usuarios[i].esPremium = true }
+  // usuarios.esPremium = true
+  return usuarios
 }
 
 function sumarLikesDeUsuario (usuario) {
@@ -91,6 +192,22 @@ function sumarLikesDeUsuario (usuario) {
   // Suma todos los likes de todos los objetos "post"
   // Devuelve la suma
   // Tu código:
+
+  /* usuario {x:1, y:2, posts:[
+    post1={likes:150}
+    post2={likes:50
+    post3={likes:120]}*/
+    // post[i].likes
+    // var acumulador = acumulador+ post[i].likes
+    // return acumulador
+
+   // console.log(usuario['posts'])
+
+
+    var acumulador =0
+    for (i=0; i<usuario['posts'].length; i++)
+    {acumulador= acumulador + usuario['posts'][i].likes}
+    return acumulador
 }
 
 function agregarMetodoCalculoDescuento (producto) {
@@ -104,6 +221,15 @@ function agregarMetodoCalculoDescuento (producto) {
   // producto.calcularPrecioDescuento() -> 20 - (20 * 0.2)
   // Tu código:
 
+  // producto{x:1, calcularPrecioDescuento ()}
+  // calcularPrecioDescuento () = {producto.precio-(producto.precio*porcentajeDeDescuento)} }
+
+  // console.log(producto)
+
+  producto.calcularPrecioDescuento = function () {
+  return this.precio - (this.precio * this.porcentajeDeDescuento) }
+  {return producto}
+  
 }
 
 // No modificar nada debajo de esta línea
